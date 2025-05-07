@@ -35,22 +35,18 @@ export const config = defineStackbitConfig({
                 regardless of whether the slug is '/', 'slug' or '/slug' */
                 slug = slug.replace(/^\/+/, '');
                 switch (document.modelName) {
-                    case 'PostFeedLayout':
-                        return {
-                            urlPath: '/blog',
-                            document: document
-                        };
-                    case 'PostLayout':
-                        return {
-                            urlPath: `/blog/${slug}`,
-                            document: document
-                        };
-                    default:
-                        return {
-                            urlPath: `/${slug}`,
-                            document: document
-                        };
-                }
+  case 'PostFeedLayout':
+    return {
+      urlPath: '/blog',
+      document
+    };
+  case 'PageLayout':
+  case 'HomeLayout':
+    return {
+      urlPath: '/',
+      document
+    };
+}
             });
     }
 });
